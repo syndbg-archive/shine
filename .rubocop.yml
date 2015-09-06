@@ -1,0 +1,12 @@
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - app/views/**/*
+    - db/schema.rb
+    - Rakefile
+    - tmp/**/*
+    - vendor/**/*

@@ -1,0 +1,12 @@
+<header>
+  <h1>Welcome to Shine, <%= current_user.email %>!</h1>
+  <h2>We're using <%= Rails.version %></h2>
+</header>
+
+<section>
+  <p>
+    Future home of Shine's dashboard
+  </p>
+
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+</section>

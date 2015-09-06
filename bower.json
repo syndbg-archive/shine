@@ -1,0 +1,15 @@
+{
+  "name": "shine",
+  "version": "0.0.0",
+  "authors": [
+    "Anton Antonov <anton.synd.antonov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
