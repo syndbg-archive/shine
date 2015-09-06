@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
+  resources :customers, only: [:index]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

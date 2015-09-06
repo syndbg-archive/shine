@@ -1,0 +1,65 @@
+<header>
+  <h2>Customer Search</h2>
+</header>
+
+
+<section class="search-form">
+  <%= form_for :customers, method: :get do |f| %>
+    <div class="input-group input-group-lg">
+        <%= label_tag :keywords, nil, class: 'sr-only' %>
+
+        <%= text_field_tag :keywords,
+            nil, placeholder: 'First name, Last name or Email address',
+            class: 'form-control input-lg' %>
+
+        <span class="input-group-btn">
+          <%= submit_tag 'Find Customers', class: 'btn btn-primary btn-lg' %>
+        </span>
+    </div>
+  <% end %>
+</section>
+
+
+<section class="search-results">
+  <header>
+    <h3>Results</h3>
+  </header>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          First name
+        </th>
+        <th>
+          Last name
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Joined
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td>
+            <%= customer.first_name %>
+          </td>
+          <td>
+            <%= customer.last_name %>
+          </td>
+          <td>
+            <%= customer.email %>
+          </td>
+          <td>
+            <%= customer.created_at.to_date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

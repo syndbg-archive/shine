@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
@@ -37,11 +36,15 @@ gem 'devise'
 gem 'bower-rails'
 
 group :development, :test do
+  # Better REPL
+  gem 'pry-rails'
+  # Fake data at our disposal
+  gem 'faker'
   # Needed for Rails Panel
   gem 'meta_request'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rubocop', require: false
+  gem 'rubocop', '0.33.0', require: false
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
