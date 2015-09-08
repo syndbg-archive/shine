@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources :customers, only: [:index]
+  namespace :api do
+    resources :customers, only: [:index]
+  end
+
+  get '/customers', to: 'customers#index'
 end

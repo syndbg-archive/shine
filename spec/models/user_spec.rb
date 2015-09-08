@@ -9,9 +9,9 @@ describe User do
     end
 
     it 'absolutely prevents invalid email addresses' do
-      expect {
+      expect do
         user.update_attribute(:email, 'foo@bar.com')
-      }.to violate_check_constraint(:email_must_be_company_email)
+      end.to violate_check_constraint(:email_must_be_company_email)
     end
   end
 end

@@ -1,27 +1,24 @@
-app.controller('CustomerSearchController', ['$scope','$http', '$timeout',
-  function($scope , $http, $timeout) {
+app.controller('CustomerSearchController', ['$scope', 'customers', 'Customer', '$timeout',
+  function($scope, customers, Customer, $timeout) {
     var page = 0;
 
-    $scope.customers = [];
+    $scope.customers = customers;
+    $scope.keywords = '';
 
     $scope.search = function(searchTerm) {
-      $scope.loading = true;
-      if (searchTerm.length < 3) {
+      if (searchTerm.length !== 0 && searchTerm.length < 3) {
         return;
       }
-      $http.get('/customers.json',
-                { 'params': { 'keywords': searchTerm, 'page': page } }
-      ).then(function(response) {
-        timeOut('responseTimeout', function () {
-          $scope.customers = response.data;
-          $scope.loading = false;
-        });
-      }, function (response) {
+
+      $scope.loading = true;
+
+      Customer.getList({ 'keywords': searchTerm, 'page': page })
+        .then(function (customers) {
           timeOut('responseTimeout', function () {
+            $scope.customers = customers
             $scope.loading = false;
           });
-          alert('Got error: ' + response.status);
-      });
+        });
     }
 
     function timeOut(timeoutName, fn) {
