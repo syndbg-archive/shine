@@ -1,35 +1,3 @@
-<header>
-  <h2>Customer Search</h2>
-</header>
-
-
-<section class="search-form">
-  <%= form_for :customers, method: :get do |f| %>
-    <div class="input-group input-group-lg">
-        <%= label_tag :keywords, nil, class: 'sr-only' %>
-
-        <%= text_field_tag :keywords,
-            nil, placeholder: 'First name, Last name or Email address',
-            class: 'form-control input-lg' %>
-
-        <span class="input-group-btn">
-          <%= submit_tag 'Find Customers', class: 'btn btn-primary btn-lg' %>
-        </span>
-    </div>
-  <% end %>
-</section>
-
-
-<section class="search-results">
-  <header>
-    <h3>Results</h3>
-  </header>
-
-    <ol class="list-group">
-      <% @customers.each do |customer| %>
-        <%= render partial: 'customer_row', locals: { customer: customer } %>
-      <% end %>
-    </ol>
-
-    <%= render partial: 'pager', locals: {keywords: @keywords, page: @page } %>
-</section>
+<article ng-app="customers">
+  <div ui-view></div>
+</article>

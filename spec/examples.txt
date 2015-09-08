@@ -1,0 +1,6 @@
+example_id                                    | status | run_time        |
+--------------------------------------------- | ------ | --------------- |
+./spec/features/angular_test_app_spec.rb[1:1] | failed | 5.18 seconds    |
+./spec/features/customer_search_spec.rb[1:1]  | failed | 0.06576 seconds |
+./spec/features/customer_search_spec.rb[1:2]  | failed | 0.09757 seconds |
+./spec/models/user_spec.rb[1:1:1]             | passed | 0.0445 seconds  |

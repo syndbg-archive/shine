@@ -1,0 +1,17 @@
+<h3 class="pull-right">
+  <small class="text-uppercase">Joined</small>
+  {{ customer.created_at | date }}
+</h3>
+
+<h2 class="h3">
+  {{ customer.first_name }} {{ customer.last_name }}
+  <small>{{ customer.username }}</small>
+</h2>
+
+<div class="pull-right">
+  <button data-ng-click="viewDetails(customer)" class="btn btn-small btn-primary">
+    View Details
+  </button>
+</div>
+
+<h4>{{ customer.email }}</h4>

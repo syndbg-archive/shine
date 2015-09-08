@@ -1,2 +1,6 @@
 asset 'bootstrap-sass-official'
-asset 'jquery'
+asset 'angular', '~> 1.4'
+asset 'angular-ui-router'
+asset 'angular-mocks'
+# asset 'angular-ui-router'
+asset 'svg-loaders'
