@@ -9,8 +9,9 @@
            name="keywords"
            class="form-control input-lg"
            placeholder="First Name, Last Name, or Email Address"
-           ng-change="search(keywords)"
-           ng-model="keywords">
+           data-ng-change="search(keywords)"
+           data-ng-model="keywords"
+           data-ng-model-options="{debounce: 300}">
   </form>
 </section>
 
@@ -19,37 +20,17 @@
   <loader></loader>
 </aside>
 
-<section class="search-results" ng-if="customers.length > 0">
+<section class="search-results" data-ng-if="customers.length > 0">
   <header>
     <h1 class="h3">Results</h1>
   </header>
 
-  <nav>
-    <ul class="pager">
-      <li class="previous">
-        <a href="" ng-click="previousPage()">&larr; Previous</a>
-      </li>
-      <li class="next">
-        <a href="" ng-click="nextPage()">Next &rarr;</a>
-      </li>
-    </ul>
-  </nav>
-
   <ol class="list-group">
     <li class="list-group-item clearfix"
-        ng-repeat="customer in customers">
+        data-ng-repeat="customer in customers">
         <customer-row for="customer"></customer-row>
     </li>
   </ol>
 
-  <nav>
-    <ul class="pager">
-      <li class="previous">
-        <a href="" ng-click="previousPage()">&larr; Previous</a>
-      </li>
-      <li class="next">
-        <a href="" ng-click="nextPage()">Next &rarr;</a>
-      </li>
-    </ul>
-  </nav>
+  <pager>
 </section>

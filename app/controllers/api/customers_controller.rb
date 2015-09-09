@@ -3,7 +3,7 @@ module Api
     PAGE_SIZE = 10
 
     def index
-      page = params.fetch(:page, 0).to_i
+      page = params.fetch(:page, 1).to_i
 
       @customers = if params[:keywords].present?
                      customers_by_keywords(params[:keywords])
@@ -12,6 +12,10 @@ module Api
                    end
 
       render json: @customers.page(page).per(PAGE_SIZE)
+    end
+
+    def show
+      render json: Customer.find(params[:id]).try(:except, :updated_at)
     end
 
     private

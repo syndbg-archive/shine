@@ -28,7 +28,7 @@ class CustomerSearchTerm
     @where_args[:email] = search_term
 
     @order = "lower(email) = \
-    #{ActiveRecord::Base.connection.quote(search_term)} desc, last_name asc"
+    #{ActiveRecord::Base.connection.quote(search_term)} desc, last_name ASC"
   end
 
   def extract_name(email)
@@ -52,6 +52,6 @@ class CustomerSearchTerm
   end
 
   def case_insensitive_search(field_name)
-    "lower(#{field_name}) like :#{field_name}"
+    "lower(#{field_name}) LIKE :#{field_name}"
   end
 end

@@ -10,6 +10,7 @@ gem 'coffee-rails'
 
 # HTTP server
 gem 'puma'
+gem 'passenger'
 # Needed for PATCH/PUT/DELETE requests
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
