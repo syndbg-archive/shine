@@ -1,5 +1,5 @@
 module Api
-  class CustomersController < ApplicationController
+  class CustomersController < ApiController
     PAGE_SIZE = 10
 
     def index
@@ -11,11 +11,11 @@ module Api
                      Customer
                    end
 
-      render json: @customers.page(page).per(PAGE_SIZE)
+      @customers = @customers.page(page).per(PAGE_SIZE)
     end
 
     def show
-      render json: Customer.find(params[:id]).try(:except, :updated_at)
+      @customer = Customer.find(params[:id])
     end
 
     private

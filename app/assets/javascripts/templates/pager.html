@@ -1,9 +1,9 @@
 <nav>
   <ul class="pager">
-    <li data-ng-class="{disabled: page < 2}" class="previous">
+    <li data-ng-class="{disabled: !hasPreviousPage}" class="previous">
       <a href="" data-ng-click="previousPage()">&larr; Previous</a>
     </li>
-    <li class="next">
+    <li data-ng-class="{disabled: !hasNextPage}" class="next">
       <a href="" data-ng-click="nextPage()">Next &rarr;</a>
     </li>
   </ul>
