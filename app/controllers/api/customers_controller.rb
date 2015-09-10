@@ -5,13 +5,13 @@ module Api
     def index
       page = params.fetch(:page, 1).to_i
 
-      @customers = if params[:keywords].present?
-                     customers_by_keywords(params[:keywords])
-                   else
-                     CustomerDetail
-                   end
+      customers = if params[:keywords].present?
+                    customers_by_keywords(params[:keywords])
+                  else
+                    CustomerDetail
+                  end
 
-      @customers = @customers.page(page).per(PAGE_SIZE)
+      @customers = customers.page(page).per(PAGE_SIZE)
     end
 
     def show

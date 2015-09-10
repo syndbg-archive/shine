@@ -98,16 +98,16 @@
             <div class="row">
               <div class="col-md-7">
                 <p class="h4">
-                  ****-****-****-1234
-                  <span class="label label-success">VISA</span>
+                  ****-****-****-{{customer.lastFour}}
+                  <span class="label label-success">{{customer.cardType}}</span>
                 </p>
                 <p class="h5">
-                  <label>Expires:</label> 04/19
+                  <label>Expires:</label> {{customer.expirationMonth}}/{{customer.expirationYear}}
                 </p>
               </div>
               <div class="col-md-5 text-right">
                 <button class="btn btn-lg btn-default">
-                  View Details…
+                  <a href="{{customer.detailsLink}}">View Details</a>
                 </button>
               </div>
             </div>
@@ -118,7 +118,7 @@
               <h1 class="h5">
                 Billing Address
                 <small>
-                  <input type="checkbox"> Same as shipping?
+                  <input data-ng-model="sameAsShipping" type="checkbox">Same as shipping?
                 </small>
               </h1>
             </header>
@@ -126,28 +126,28 @@
               <label class="sr-only" for="street-address">
                 Street Address
               </label>
-              <input data-ng-model="customer.billingStreet" type="text"
+              <input data-ng-model="customer.billingStreet" data-ng-disabled="sameAsShipping" type="text"
                      class="form-control" name="street-address">
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="sr-only" for="city">City</label>
-                  <input data-ng-model="customer.billingCity" type="text"
+                  <input data-ng-model="customer.billingCity" data-ng-disabled="sameAsShipping" type="text"
                          class="form-control" name="city">
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="sr-only" for="state">State</label>
-                  <input data-ng-model="customer.billingState" type="text"
+                  <input data-ng-model="customer.billingState" data-ng-disabled="sameAsShipping" type="text"
                          class="form-control" name="state">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="sr-only" for="zip">Zip</label>
-                  <input data-ng-model="customer.billingZipcode" type="text"
+                  <input data-ng-model="customer.billingZipcode" data-ng-disabled="sameAsShipping" type="text"
                          class="form-control" name="zip">
                 </div>
               </div>
