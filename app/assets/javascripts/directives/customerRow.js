@@ -1,4 +1,4 @@
-app.directive('customerRow', function () {
+app.directive('customerRow', ['$state', function ($state) {
   return {
     restrict: 'E',
     scope: {
@@ -6,6 +6,9 @@ app.directive('customerRow', function () {
     },
     templateUrl: 'customer_row.html',
     link: function($scope, $element, $attrs) {
+      $scope.viewDetails = function () {
+        $state.go('item', { id: $scope.customer.id});
+      };
     }
   };
-});
+}]);

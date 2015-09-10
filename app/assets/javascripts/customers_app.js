@@ -17,8 +17,8 @@ app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
       templateUrl: 'customer_search.html',
       controller: 'CustomerSearchController',
       resolve: {
-        customers: ['Customer', function (Customer) {
-          return Customer.getList();
+        customers: ['Customers', function (Customers) {
+          return Customers.getList();
         }]
       }
     }).state('item', {
@@ -26,8 +26,8 @@ app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
       templateUrl: 'customer_detail.html',
       controller: 'CustomerDetailController',
       resolve: {
-        customer: ['$stateParams', 'Customer', function($stateParams, Customer) {
-          return Customer.get($stateParams.id);
+        customer: ['$stateParams', 'Customers', function($stateParams, Customers) {
+          return Customers.getList().get($stateParams.id);
         }]
       }
     });

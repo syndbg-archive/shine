@@ -1,10 +1,160 @@
-<article class="customer-details">
-  <h1>Customer {{customer.id}}</h1>
-  <h2>{{customer.first_name}}</h2>
-  <h3>{{customer.email}}</h3>
-  <h4>{{customer.username}}</h4>
-  <h5>
-    <small class="text-uppercase">Joined</small>
-    {{customer.created_at | date}}
-  </h5>
-</article>
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <article class="panel panel-primary">
+        <header class="panel-heading">
+          <h1 class="h3">
+            Customer
+          </h1>
+        </header>
+        <section class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="first-name">
+                  First Name
+                </label>
+                <input data-ng-model="customer.firstName" type="text"
+                       class="form-control" name="first-name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="last-name">Last Name</label>
+                <input data-ng-model="customer.lastName" type="text"
+                       class="form-control" name="last-name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="username">Username</label>
+                <div class="input-group">
+                  <div class="input-group-addon">@</div>
+                  <input data-ng-model="customer.username" type="text"
+                         class="form-control" name="username">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="email">Email</label>
+            <input data-ng-model="customer.email" type="text"
+                   class="form-control" name="email">
+          </div>
+        </section>
+        <footer class="panel-footer">
+          <label for="joined">Joined</label> {{customer.createdAt | date }}
+        </footer>
+      </article>
+      <article class="panel panel-default">
+        <header class="panel-heading">
+          <h2 class="h4">
+            Shipping Address
+          </h2>
+        </header>
+        <section class="panel-body">
+          <div class="form-group">
+            <label class="sr-only" for="street-address">
+              Street Address
+            </label>
+            <input data-ng-model="customer.shippingStreet" type="text"
+                   class="form-control" name="street-address">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="city">City</label>
+                <input data-ng-model="customer.shippingCity" type="text"
+                       class="form-control" name="city">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="sr-only" for="state">State</label>
+                <input data-ng-model="customer.shippingState" type="text"
+                       class="form-control" name="state">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="zip">Zip</label>
+                <input data-ng-model="customer.shippingZipcode" type="text"
+                       class="form-control" name="zip">
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <article class="panel panel-default">
+        <header class="panel-heading">
+          <h2 class="h4">
+            Billing Info
+          </h2>
+        </header>
+        <section class="panel-body">
+          <article>
+            <div class="row">
+              <div class="col-md-7">
+                <p class="h4">
+                  ****-****-****-1234
+                  <span class="label label-success">VISA</span>
+                </p>
+                <p class="h5">
+                  <label>Expires:</label> 04/19
+                </p>
+              </div>
+              <div class="col-md-5 text-right">
+                <button class="btn btn-lg btn-default">
+                  View Details…
+                </button>
+              </div>
+            </div>
+          </article>
+          <hr>
+          <article class="well well-sm">
+            <header>
+              <h1 class="h5">
+                Billing Address
+                <small>
+                  <input type="checkbox"> Same as shipping?
+                </small>
+              </h1>
+            </header>
+            <div class="form-group">
+              <label class="sr-only" for="street-address">
+                Street Address
+              </label>
+              <input data-ng-model="customer.billingStreet" type="text"
+                     class="form-control" name="street-address">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="sr-only" for="city">City</label>
+                  <input data-ng-model="customer.billingCity" type="text"
+                         class="form-control" name="city">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="sr-only" for="state">State</label>
+                  <input data-ng-model="customer.billingState" type="text"
+                         class="form-control" name="state">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="zip">Zip</label>
+                  <input data-ng-model="customer.billingZipcode" type="text"
+                         class="form-control" name="zip">
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </article>
+    </div>
+  </div>
+</form>

@@ -1,5 +1,5 @@
-app.controller('CustomerSearchController', ['$scope', '$stateParams', 'customers', 'Customer',
-  function($scope, $stateParams, customers, Customer) {
+app.controller('CustomerSearchController', ['$scope', '$stateParams', 'customers', 'Customers',
+  function($scope, $stateParams, customers, Customers) {
     $scope.page = $stateParams.page || 1;
     $scope.keywords = $stateParams.q || '';
 
@@ -14,7 +14,7 @@ app.controller('CustomerSearchController', ['$scope', '$stateParams', 'customers
 
       $scope.loading = true;
 
-      Customer.getList({ 'keywords': $scope.keywords, 'page': $scope.page })
+      Customers.getList({ 'keywords': $scope.keywords, 'page': $scope.page })
         .then(function (customers) {
           $scope.hasNextPage = customers.hasNextPage;
           $scope.hasPreviousPage = customers.hasPreviousPage;
