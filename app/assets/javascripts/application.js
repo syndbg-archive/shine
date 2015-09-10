@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require lodash
 //= require angular
+//= require angular-messages
 //= require angular-ui-router
 //= require restangular
 //= require angular-rails-templates

@@ -4,6 +4,7 @@ var app = angular.module(
     'restangular',
     'ui.router',
 
+    'ngMessages',
     'templates'
   ]
 );

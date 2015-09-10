@@ -1,4 +1,4 @@
-<form>
+<form novalidate name="form">
   <div class="row">
     <div class="col-md-6">
       <article class="panel panel-primary">
@@ -14,14 +14,14 @@
                 <label class="sr-only" for="first-name">
                   First Name
                 </label>
-                <input data-ng-model="customer.firstName" type="text"
+                <input data-ng-model="customer.firstName" type="text" required
                        class="form-control" name="first-name">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="sr-only" for="last-name">Last Name</label>
-                <input data-ng-model="customer.lastName" type="text"
+                <input data-ng-model="customer.lastName" type="text" required
                        class="form-control" name="last-name">
               </div>
             </div>
@@ -36,10 +36,17 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback" ng-class="{
+              'has-error': form.email.$invalid && form.email.$dirty,
+              'has-success': form.email.$valid && form.email.$touched
+          }">
             <label class="sr-only" for="email">Email</label>
-            <input data-ng-model="customer.email" type="text"
-                   class="form-control" name="email">
+            <input type="email" class="form-control" required
+                   name="email" ng-model="customer.email">
+            <p class="help-block" ng-messages="form.email.$error">
+              <span ng-message="required">Email is required</span>
+              <span ng-message="email">Email must look like an email</span>
+            </p>
           </div>
         </section>
         <footer class="panel-footer">
@@ -57,7 +64,7 @@
             <label class="sr-only" for="street-address">
               Street Address
             </label>
-            <input data-ng-model="customer.shippingStreet" type="text"
+            <input data-ng-model="customer.shippingStreet" type="text" required
                    class="form-control" name="street-address">
           </div>
           <div class="row">
@@ -65,21 +72,21 @@
               <div class="form-group">
                 <label class="sr-only" for="city">City</label>
                 <input data-ng-model="customer.shippingCity" type="text"
-                       class="form-control" name="city">
+                       class="form-control" name="city" required>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-group">
                 <label class="sr-only" for="state">State</label>
                 <input data-ng-model="customer.shippingState" type="text"
-                       class="form-control" name="state">
+                       class="form-control" name="state" pattern="[A-Z][A-Z]">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="sr-only" for="zip">Zip</label>
                 <input data-ng-model="customer.shippingZipcode" type="text"
-                       class="form-control" name="zip">
+                       class="form-control" name="zip" pattern="\d\d\d\d\d">
               </div>
             </div>
           </div>
@@ -107,7 +114,7 @@
               </div>
               <div class="col-md-5 text-right">
                 <button class="btn btn-lg btn-default">
-                  <a href="{{customer.detailsLink}}">View Details</a>
+                  <a href="{{customer.detailsLink}}" target="_blank">View Details</a>
                 </button>
               </div>
             </div>
@@ -155,6 +162,10 @@
           </article>
         </section>
       </article>
+
+      <div class="text-right">
+        <button data-ng-click="save()" type="button" class="btn btn-lg btn-primary">Save Changes</button>
+      </div>
     </div>
   </div>
 </form>
