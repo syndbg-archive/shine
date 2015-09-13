@@ -14,10 +14,12 @@
 //= require jquery_ujs
 //= require lodash
 //= require angular
+//= require angular-bootstrap
 //= require angular-messages
+//= require angular-rails-templates
+//= require angular-ui-notification
 //= require angular-ui-router
 //= require restangular
-//= require angular-rails-templates
 //= require_tree ./templates
 
 //= require customers_app.js

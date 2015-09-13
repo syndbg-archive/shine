@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :customers, only: [:index, :show]
+    resources :customers, only: [:index, :show, :update]
   end
 
   get '/customers', to: 'customers#index'

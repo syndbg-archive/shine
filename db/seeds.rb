@@ -1,5 +1,5 @@
 if Customer.count == 0
-  puts 'Creating customers.'
+  logger.info 'Creating customers.'
 
   3000.times do |i|
     Customer.create!(
@@ -9,11 +9,11 @@ if Customer.count == 0
       email: "#{Faker::Internet.user_name}#{i}@#{Faker::Internet.domain_name}")
   end
 
-  puts 'Done creating customers.'
+  logger.info 'Done creating customers.'
 end
 
 if State.count == 0
-  puts 'Creating States'
+  logger.info 'Creating States'
 
   State.create!(name: 'Alabama', code: 'AL')
   State.create!(name: 'Alaska', code: 'AK')
@@ -67,7 +67,7 @@ if State.count == 0
   State.create!(name: 'Wisconsin', code: 'WI')
   State.create!(name: 'Wyoming', code: 'WY')
 
-  puts 'Done creating states.'
+  logger.info 'Done creating states.'
 end
 
 def create_billing_address(customer_id, num_states)

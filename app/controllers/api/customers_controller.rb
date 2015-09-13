@@ -18,7 +18,21 @@ module Api
       @customer = CustomerDetail.find(params[:id])
     end
 
+    def update
+      permitted_params = permit_params
+      customer = CustomerDetail.find(permitted_params[:id])
+      customer.update(permitted_params)
+      head :ok
+    end
+
     private
+
+    def permit_params
+      params.permit(:id, :email, :first_name, :last_name, :username,
+                    :billing_street, :billing_city, :billing_state,
+                    :billing_zipcode, :shipping_street, :shipping_city,
+                    :shipping_state, :shipping_zipcode)
+    end
 
     def customers_by_keywords(keywords)
       customer_search_term = CustomerSearchTerm.new(keywords)

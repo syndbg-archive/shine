@@ -3,14 +3,16 @@ var app = angular.module(
   [
     'restangular',
     'ui.router',
+    'ui.bootstrap',
+    'ui-notification',
 
     'ngMessages',
     'templates'
   ]
 );
 
-app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
-  function($stateProvider, $urlRouterProvider, RestangularProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', 'NotificationProvider',
+  function($stateProvider, $urlRouterProvider, RestangularProvider, NotificationProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('root', {
@@ -31,6 +33,17 @@ app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
           return Customers.getList().get($stateParams.id);
         }]
       }
+    });
+
+    NotificationProvider.setOptions({
+      delay: 10000,
+      startTop: 10,
+      startRight: 10,
+      verticalSpacing: 20,
+      horizontalSpacing: 20,
+      positionX: 'center',
+      positionY: 'top',
+      replaceMessage: true
     });
 
     RestangularProvider.setBaseUrl('/api/');
@@ -56,5 +69,4 @@ app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
       }
       return extractedData;
     });
-
 }]);

@@ -4,11 +4,11 @@
 </h3>
 
 <h2 class="h3">
-  {{customer.firstName }} {{customer.lastName}}
+  {{customer.firstName}} {{customer.lastName}}
   <small>{{customer.username}}</small>
 </h2>
 
-<div class="pull-right">
+<div data-ng-if="showViewDetails" class="pull-right">
   <button data-ng-click="viewDetails()" class="btn btn-small btn-primary">
     View Details
   </button>
